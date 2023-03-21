@@ -1,0 +1,179 @@
+.wrap {
+  min-height: 745px;
+  max-height: 745px;
+  max-width: 375px;
+  min-width: 375px;
+  position: relative;
+  margin: 0 auto;
+  border: black solid 1px;
+  overflow: hidden;
+  background-color: #f0f0f5;
+}
+.top {
+  height: 22px;
+  width: 22px;
+  top: 10px;
+}
+.profile {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 65px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.profile img {
+  position: relative;
+  top: 3px;
+}
+.profile p {
+  margin: 0;
+  font-size: 20px;
+}
+.smile {
+  position: absolute;
+  right: 40px;
+}
+.noti {
+  position: absolute;
+  right: 10px;
+}
+
+.top_ad {
+  background-color: white;
+  border-radius: 10px;
+
+  position: relative;
+  top: 45px;
+  left: 3%;
+  width: 94%;
+  height: 20%;
+}
+.upper_ad {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.ad {
+  display: flex;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.graph {
+  margin: 20px;
+  width: 35px;
+  height: 35px;
+  margin-top: 0;
+}
+.korea {
+  margin: 0;
+  margin-bottom: 3px;
+}
+.real {
+  margin: 0;
+}
+
+.assets {
+  box-sizing: border-box;
+  background-color: white;
+  width: 94%;
+  margin: 0 auto;
+  position: relative;
+  top: 55px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.assets_head {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+.account {
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+  align-items: center;
+  padding-left: 10px;
+  margin-bottom: 40px;
+}
+
+.account_amount {
+  margin-left: 10px;
+  width: 60%;
+}
+.account_amount p {
+  margin: 0;
+}
+.account_name {
+  font-size: 8px;
+}
+.amount {
+  text-align: right;
+}
+
+.account_img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: gray solid 1px;
+  margin-right: 0px;
+}
+
+.send {
+  background-color: #f0f0f5;
+  margin: 0;
+  margin-right: 10px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  width: 55px;
+  border-radius: 10px;
+}
+.send p {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.bot {
+  position: relative;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  margin: 0 auto;
+  z-index: 99;
+  background-color: white;
+  box-shadow: 0 -10px 20px rgba(100, 100, 100, 0.19),
+    0 -6px 6px rgba(100, 100, 100, 0.23);
+}
+
+.consume {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 -0.3px lightgray;
+}
+
+.list {
+  position: relative;
+  top: 10px;
+}
+
+.icon_img {
+  height: 30px;
+}
+.icon {
+  padding: 9px;
+}
+.icon p {
+  margin: 0 auto;
+  text-align: center;
+}
