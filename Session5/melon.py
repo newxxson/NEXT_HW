@@ -18,6 +18,7 @@ driver = webdriver.Chrome(chrome_driver, options= chrome_options)
 
 # 실행할 웹페이지 불러오기 (멜론 차트)
 driver.get("https://www.melon.com/index.htm")
+driver.implicitly_wait(3)
 # 멜론 차트 버튼 클릭
 chartbtn = driver.find_element(By.XPATH, "//*[@id='gnb_menu']/ul[1]/li[1]/a/span[2]")
 chartbtn.click()
