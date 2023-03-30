@@ -1,0 +1,30 @@
+a {
+  text-decoration: none;
+  color: blue;
+}
+body {
+  background-color: aquamarine;
+}
+.wrapper {
+  margin: 0 auto;
+  position: absolute;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+.heading {
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.introduce {
+  position: relative;
+  top: 30%;
+}
+
+.heading * {
+  color: black;
+}
