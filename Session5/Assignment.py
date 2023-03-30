@@ -26,7 +26,7 @@ Safari/537.36'), }
 
 crawled_data = []
 
-for i in range(2,23): #2부터 시작 12없음 23까지
+for i in range(2, 23): #2부터 시작 12없음 23까지
     if i == 12:
         continue
     chartbtn = driver.find_element(By.XPATH, f'//*[@id="old_content"]/table/tbody/tr[{i}]/td[2]/div/a')
@@ -42,3 +42,4 @@ to_cv = pd.DataFrame(crawled_data, columns=['Title', 'Outline', 'director', 'rat
 
 to_cv.to_csv('./product.csv', encoding='cp949')
 to_cv.head()
+    
