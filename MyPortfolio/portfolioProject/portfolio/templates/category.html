@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>category</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'category.css' %}" />
+  </head>
+  <body>
+    <div class="category">
+      <div class="block hobby">
+        <a href="{% url 'list' 'HOBBY' %}"
+          ><img src="../static/img/hobby.jpg"
+        /></a>
+        <p>HOBBY</p>
+      </div>
+      <div class="block food">
+        <a href="{% url 'list' 'FOOD' %}"
+          ><img src="../static/img/food.jpg"
+        /></a>
+        <p>FOOD</p>
+      </div>
+      <div class="block programming">
+        <a href="{% url 'list' 'PROGRAMMING' %}"
+          ><img src="../static/img/programming.png"
+        /></a>
+        <p>PROGRAMMING</p>
+      </div>
+    </div>
+    <div class="back"><a href="{% url 'list' %}">back to list</a></div>
+  </body>
+</html>

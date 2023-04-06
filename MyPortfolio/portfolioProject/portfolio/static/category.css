@@ -1,0 +1,43 @@
+body div div a img {
+  height: 400px;
+  width: 300px;
+}
+
+body {
+  background-color: black;
+}
+
+.category {
+  border: 2px orangered solid;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  align-items: center;
+}
+.block {
+  padding: 10px;
+  color: white;
+  border: white 4px solid;
+}
+.block p {
+  text-align: center;
+  border: yellow 1px solid;
+}
+.back {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  margin: 0 auto;
+}
+.back a {
+  font-size: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>write_new</title>
+  </head>
+  <body>
+    <h2>Add an Article</h2>
+    <form action="/write_new" method="post">
+      {% csrf_token %}
+      <div>
+        <div>Title</div>
+        <input type="text" name="title" />
+      </div>
+      <div>
+        <select name="article_category">
+          <option value="N/A">Category</option>
+          <option value="HOBBY">Hobby</option>
+          <option value="FOOD">Food</option>
+          <option value="PROGRAMMING">Programming</option>
+        </select>
+      </div>
+      <div>
+        <div>content</div>
+        <textarea name="content" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

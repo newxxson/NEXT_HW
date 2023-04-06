@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'info_style.css' %}" />
+    <title>Information</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="heading">
+          <a href="{% url 'info' %}">Info</a>
+          <a href="{% url 'project' %}">Project</a>
+          <a href="{% url 'list' %}">Article</a>
+        </div>
+      </header>
+      <div class="introduce">
+        <h1>안녕하세요, 이혁준입니다.</h1>
+        <p>
+          <h2><a href="https://www.instagram.com/prometheus_ai_/"> 프로메테우스 </a>
+          에서 운영진을 맡았었고,</h2>
+        </p>
+        <p>
+          <h2>
+            현재는 
+            <a href="https://www.instagram.com/next_koreauniv/">
+              NEXT
+            </a>
+            에서 활동하고 있습니다!
+          </h2>
+        </p>
+       
+      </div>
+    </div>
+  </body>
+</html>
