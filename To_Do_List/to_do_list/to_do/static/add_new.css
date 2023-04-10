@@ -1,0 +1,77 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set background color and font for the whole page */
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Center the form and set its width */
+.form {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* Style the form inputs */
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style the title input */
+.title {
+  background-color: #fff;
+}
+
+/* Style the content textarea */
+.content {
+  height: 200px;
+  background-color: #fff;
+}
+
+/* Style the due date input */
+.date {
+  background-color: #fff;
+}
+
+/* Style the submit button */
+.submit {
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+/* 
+Style the home link */
+.home {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  background-color: aquamarine;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: fit-content;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'add_new.css' %}" />
+    <title>add_new</title>
+  </head>
+  <body>
+    <form class="form" method="POST">
+      {% csrf_token %}
+      <input
+        class="title"
+        type="text"
+        name="title"
+        placeholder="What do you have to do?"
+      />
+      <textarea
+        class="content"
+        name="content"
+        placeholder="TO-DO specific?"
+      ></textarea>
+      <input
+        class="date"
+        type="datetime-local"
+        name="due_date"
+        value="{{ current_time }}"
+        min="{{ current_time }}"
+        max="{{ max_time }}"
+      />
+      <input class="submit" type="submit" value="POST!" />
+    </form>
+    <a class="home" href="{% url 'home' %}">home</a>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %} {% load utils %}
+    <link rel="stylesheet" href="{% static 'home_style.css' %}" />
+    <title>home</title>
+  </head>
+  <body>
+    <div class="all">
+      <div class="section">
+        <p>Title</p>
+        <p>Due date</p>
+        <p>Progress</p>
+        <p>Edit</p>
+      </div>
+      {% for to_do_element in to_do_list %}
+
+      <div class="title_to">
+        <div class="title">
+          <a href="{% url 'detail' to_do_element.pk %}">
+            {{to_do_element.title}}
+          </a>
+        </div>
+        <div class="due_date">
+          <div>{{to_do_element.due_date|date:"m-d / h시"}}</div>
+          {{ to_do_element.due_date|due_delta }} Days Left
+        </div>
+        <div class="done">
+          {% if to_do_element.done %}
+          <a href="{% url 'done' to_do_element.pk %}">DONE</a>
+          {% else %}
+          <a href="{% url 'done' to_do_element.pk %}" style="color: darkred"
+            >TODO</a
+          >
+          {% endif %}
+        </div>
+        <div class="edit">
+          <a class="delete" href="{% url 'delete' to_do_element.pk %}">Del</a>
+          / <a class="edit" href="{% url 'edit' to_do_element.pk %}">Edit</a>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+    <div class="under">
+      <a class="add_new" href="{% url 'add_new' %}">ADD NEW TODO</a>
+    </div>
+  </body>
+</html>
