@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block css %} {% endblock css %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} {% endblock title %}
+  </head>
+  <body>
+    {% block everything %} {% endblock everything %}
+    <footer
+      style="
+        position: absolute;
+        bottom: 0px;
+        background-color: aliceblue;
+        color: thistle;
+        font-weight: 600;
+        font-size: 20px;
+        min-width: 100%;
+      "
+    >
+      <div class="info">
+        <p style="text-align: left">Made by 이혁준</p>
+        <p style="text-align: left">Helped by chatGPT</p>
+        <p style="text-align: left">This is awkward</p>
+      </div>
+    </footer>
+  </body>
+</html>

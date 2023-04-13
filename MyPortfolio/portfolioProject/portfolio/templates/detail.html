@@ -4,14 +4,69 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{%  static 'detail.css'  %}?v=1" />
     <title>detail</title>
   </head>
   <body>
     <h1>{{ article.title }}</h1>
     <div>{{ article.content }}</div>
     <div>{{ article.written_time }}</div>
+    <form method="POST" class="comment_post">
+      {% csrf_token %}
+      <input type="text" name="comment" placeholder="comments" />
+      <button type="submit">Submit</button>
+    </form>
+    <ul>
+      {% for comment in article.comments.all %}
+      <li>
+        {{ comment.content }}
+        <a
+          href="{% url 'delete_comment' article.id comment.id %}"
+          class="delete"
+          >Del</a
+        >
+        <button class="show-reply">Reply</button>
 
+        <form method="POST" class="reply">
+          {% csrf_token %}
+          <label for="reply-textarea">Reply:</label>
+          <textarea id="reply-textarea" name="reply"></textarea>
+          <input
+            type="text"
+            name="comment_id"
+            value="{{comment.id}}"
+            style="display: none"
+          />
+          <button class="cancel">Cancel</button>
+          <button class="submit">Submit</button>
+        </form>
+        <div class="replies">
+          {% for reply in comment.replies.all %}
+          <ul>
+            <li>
+              {{reply.content}}
+              <a
+                href="{% url 'delete_reply' article.id reply.id %}"
+                class="delete"
+                >Del</a
+              >
+            </li>
+          </ul>
+          {% endfor %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
     <div><a href="{% url 'list' %}">back to main</a></div>
     <div><a href="{% url 'write_new' %}">write</a></div>
+    <script>
+      const showReplyButtons = document.querySelectorAll(".show-reply");
+      showReplyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          button.nextElementSibling.classList.toggle("active");
+        });
+      });
+    </script>
   </body>
 </html>

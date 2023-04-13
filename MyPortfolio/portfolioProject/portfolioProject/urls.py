@@ -26,5 +26,7 @@ urlpatterns = [
     path('list/<str:category>', views.list, name='list'),
     path('detail/<int:id>', views.detail, name='detail'),
     path('category', views.category, name='category'),
+    path('delete_comment/<int:article_id>/<int:comment_id>', views.delete_comment, name='delete_comment'),
+    path('delete_reply/<int:article_id>/<int:reply_id>', views.delete_reply, name='delete_reply'),
 
 ]

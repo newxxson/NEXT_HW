@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list</title>
-  </head>
-  <body>
-    <h2>List of Articles</h2>
-    <form action="/list" method="post">
-      {% csrf_token %}
-      <select name="category">
-        <option value="category">Category</option>
-        {% for cate, num in cate_num %}
-        <option value="{{ cate }}">{{cate}} {{num}}</option>
-        {% endfor %}
-      </select>
-      <button type="submit">select</button>
-    </form>
-    <ul>
-      {% for article in articles %}
-      <li><a href="{% url 'detail' article.id %}">{{ article.title }}</a></li>
-      {% endfor %}
-    </ul>
-    <a href="{% url 'write_new' %}">Add Article</a>
-    <a href="{% url 'category' %}">Category view</a>
-  </body>
-</html>
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" href="{%  static 'list.css'  %}?v=1" />
+{% endblock %} {% block title %}
+<title>list</title>
+{% endblock %} {% block everything %}
+<header class="header">
+  <h2>List of Articles</h2>
+</header>
+<form action="/list" method="post" class="form">
+  {% csrf_token %}
+  <select name="category">
+    <option value="category">Category</option>
+    {% for cate, num in cate_num %}
+    <option value="{{ cate }}">{{cate}} {{num}}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">select</button>
+</form>
+<ul class="article-list">
+  {% for article in articles %}
+  <li><a href="{% url 'detail' article.id %}">{{ article.title }}</a></li>
+  {% endfor %}
+</ul>
+<a class="add" href="{% url 'write_new' %}">Add Article</a>
+<a class="category" href="{% url 'category' %}">Category view</a>
+{% endblock %}
