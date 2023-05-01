@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %} Home! {% endblock %} {% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+{% endblock %} {% block content %}
+<div class="posts_box">
+  {% for post in posts %}
+  <a href="{% url 'detail' post.pk %}">
+    <div class="post_wrapper">
+      <div class="post_title">제목: {{post.title}}</div>
+      <div class="post_content">내용 : {{post.content}}</div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+<a id="post-button" href="{% url 'new' %}">글 쓰러 가기!</a>
+{% endblock %}

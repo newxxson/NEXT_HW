@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load account socialaccount %} {% providers_media_js %} {% load static %}
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Inter:wght@900&family=Jua&family=Koulen&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+    <title>Project</title>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <a href="{% url 'home' %}">NEXT-LIKELION</a>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__menu__item">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="navbar__menu__item">
+          <a href="{% url 'login'%}">로그인</a>
+        </li>
+        <li class="navbar__menu__item">
+          <a href="{% url 'signup'%}">회원가입</a>
+        </li>
+        <li class="navbar__menu__item">
+          <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="title">For authorized personel only</div>
+    <div class="container">Login to access site</div>
+  </body>
+</html>

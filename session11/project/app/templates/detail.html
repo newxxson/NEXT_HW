@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %} Detail!{% endblock %} {% block css%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+{% endblock %} {% block content %}
+<div class="detail-post_container">
+  <div class="detail_title">제목: {{post.title}}</div>
+  <div class="detail_content">내용: {{post.content}}</div>
+  <div class="detail-post_btn">
+    <a href="{% url 'home' %}">홈 화면</a>
+    {% if request.user == post.author or user.is_superuser %}
+    <a href="{% url 'edit' post.pk %}">수정하기</a>
+    <a href="{% url 'delete' post.pk %}">삭제하기</a>
+    {% endif %}
+  </div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="content" />
+    <button type="submit">댓글 작성</button>
+  </form>
+  {% for comment in post.comments.all %}
+  <li>
+    <span>{{comment.content}}</span>
+    {% if request.user == comment.author or user.is_superuser %}
+    <a href="{% url 'delete_comment' post.pk comment.pk %}">삭제</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</div>
+{% endblock %}
