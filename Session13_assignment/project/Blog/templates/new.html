@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %} new {% endblock %}
+
+<!-- test -->
+{% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <div>
+    <label for="title">제목</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      placeholder="제목을 입력해주세요"
+    />
+  </div>
+  <div>
+    <label for="content">내용</label>
+    <textarea
+      name="content"
+      id="content"
+      cols="30"
+      rows="10"
+      placeholder="내용을 입력해주세요"
+    ></textarea>
+  </div>
+  <button type="submit">작성하기</button>
+</form>
+{% endblock %}

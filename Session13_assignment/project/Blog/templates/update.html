@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block title %} update {% endblock %}
+<!-- AAD -->
+{% block content %}
+<div class="edit-post_container">
+  <form method="POST" action="">
+    {% csrf_token %}
+    <input
+      type="text"
+      value="{{post.title}}"
+      name="title"
+      placeholder="수정할 제목!"
+    />
+    <textarea name="content" placeholder="수정할 내용!">
+      {{post.content}}</textarea
+    >
+    <input id="edit-post_btn" type="submit" value="수정하기" />
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block title %} detail {% endblock %}
+<!-- asd -->
+{% block content %}
+<div>
+  <div>
+    <h2>제목</h2>
+    <p>{{ post.title }}</p>
+    <h4>글쓴이:</h4>
+    <p>{{ post.author }}</p>
+  </div>
+  <div>
+    <h2>내용</h2>
+    <p>{{ post.content }}</p>
+  </div>
+  <a href="{%	url 'Blog:home'	%}">홈으로</a>
+  {% if request.user == post.author or user.is_superuser %}
+  <a href="{%	url 'Blog:update'	post.pk %}">수정하기</a>
+  <a href="{%	url 'Blog:delete'	post.pk %}">삭제하기</a>
+  {% endif %}
+</div>
+<div>
+  {% if request.user.is_authenticated %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="content" />
+    <button type="submit">댓글 작성</button>
+  </form>
+  {% endif %}
+  <!-- tt -->
+  {% for comment in post.comments.all %}
+  <li>
+    <span>{{comment.comment}}</span>
+    <span>{{comment.author}}</span>
+    {% if request.user == comment.author or user.is_superuser %}
+    <a href="{% url 'Blog:delete_comment' post.pk comment.pk %}">삭제</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</div>
+{% endblock %}
