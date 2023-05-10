@@ -1,0 +1,29 @@
+body {
+  width: 100%;
+}
+
+#room {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: gray;
+  align-items: center;
+}
+
+.key {
+  width: 10%;
+  height: 80%;
+  border: black solid 1px;
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: 600;
+}
+
+.pressed {
+  background: yellow;
+  transform: scale(1.2);
+}
