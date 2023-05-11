@@ -1,0 +1,5 @@
+Pipfile
+
+Pipfile.lock
+
+project/db.sqlite3

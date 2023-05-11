@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+<!--  -->
+{% block content %}
+<div>
+  <div>
+    <div class="post_title">{{ post.title }}</div>
+    <div class="post_content">{{ post.content }}</div>
+  </div>
+  <a href="{% url 'home' %}">홈으로</a>
+
+  {% if user.is_authenticated and post.author.pk == user.pk %}
+  <a href="{% url 'edit' post.pk %}">수정하기</a>
+  <a href="{% url 'delete' post.pk %}">삭제하기</a>
+  {% endif %}
+  <span class="like-count">좋아요 수 : {{ post.likes.count }} </span>
+  <ul id="comments-list">
+    {% for comment in post.comments.all %}
+    <li>
+      {{ comment.content }}
+      <!--  -->
+      {% if user.is_authenticated and comment.author.pk == user.pk %}
+      <a href="{% url 'delete_comment' post.pk comment.pk %}">댓글삭제</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% if user.is_authenticated %}
+  <form id="comment" method="POST">
+    <input
+      id="content"
+      type="text"
+      name="content"
+      placeholder="댓글을 입력하세요"
+    />
+    <input type="hidden" name="post_pk" value="{{ post.pk }}" />
+    <button type="submit">댓글 쓰기</button>
+  </form>
+
+  <button class="like-button">좋아요</button>
+  {% endif %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  const likeButton = document.querySelector(".like-button");
+  const likeCount = document.querySelector(".like-count");
+
+  const handleLike = () => {
+    fetch("/like", {
+      method: "POST",
+      body: JSON.stringify({
+        post_pk: "{{ post.pk }}",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        likeCount.innerHTML = `좋아요 ${data.like_count}개`;
+      });
+  };
+
+  likeButton.addEventListener("click", handleLike);
+</script>
+<script>
+  const form = document.getElementById("comment");
+  const commentsList = document.getElementById("comments-list");
+  const text = document.getElementById("content");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    axios
+      .post("/comment", JSON.stringify(Object.fromEntries(formData)), {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(function (response) {
+        const data = response.data;
+        const li = document.createElement("li");
+        li.innerText = `${data.comment.content}`;
+        const deleteButton = document.createElement("a");
+        deleteButton.href = `/delete_comment/{{ post.pk }}/${data.comment.comment_pk}`;
+        deleteButton.innerText = "댓글 삭제";
+        li.appendChild(deleteButton);
+        commentsList.appendChild(li);
+        text.value = "";
+      })
+      .catch(function (error) {
+        console.log("?!????");
+      });
+  });
+</script>
+
+{% endblock content %}
